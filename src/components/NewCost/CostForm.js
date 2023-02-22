@@ -4,7 +4,7 @@ import "./CostForm.css"
 function CostForm() {
 
     const [inputName, setInputName] = useState('');
-    const [inputAmount, setInputCost] = useState('');
+    const [inputAmount, setInputAmount] = useState('');
     const [inputDate, setInputDate] = useState('');
 
 //    const [userInput, setUserInput] = useState({
@@ -30,7 +30,7 @@ function CostForm() {
     }
 
     const AmountChangeHandler = (event) => {
-        setInputCost(event.target.value);
+        setInputAmount(event.target.value);
         // setUserInput({
         //     ...userInput,
         //     amount: event.target.value
@@ -53,6 +53,9 @@ function CostForm() {
             date: new Date(inputDate)
         }
         console.log(costData);
+        setInputName("");
+        setInputAmount("");
+        setInputDate("");
     };
 
     return (
@@ -60,15 +63,15 @@ function CostForm() {
             <div className="new-cost__controls">
                 <div className="new-cost__control">
                     <label>Name</label>
-                    <input onChange={NameChangeHandler} type="text"/>
+                    <input onChange={NameChangeHandler} value={inputName} type="text"/>
                 </div>
                 <div className="new-cost__control">
                     <label>Cost</label>
-                    <input onChange={AmountChangeHandler} type="number" min="0.01" step="0.01" />
+                    <input onChange={AmountChangeHandler} value={inputAmount} type="number" min="0.01" step="0.01" />
                 </div> 
                 <div className="new-cost__control">
                     <label>Date</label>
-                    <input onChange={DateChangeHandler} type="date" min="21-01-01" step="2023-12-31" />
+                    <input onChange={DateChangeHandler} value={inputDate} type="date" min="21-01-01" step="2023-12-31" />
                 </div>  
             </div>
             <div className="new-cost__actions">
