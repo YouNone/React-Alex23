@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./CostForm.css"
+import { v4 as uuidv4 } from 'uuid';
+
 
 function CostForm(props) {
 
@@ -48,9 +50,10 @@ function CostForm(props) {
     const SubmitHandler = (event) => {
         event.preventDefault();
         const costData = {
-            name: inputName,
+            description: inputName,
             amount: inputAmount,
-            date: new Date(inputDate)
+            date: new Date(inputDate),
+            id: uuidv4()
         }
         props.onSaveNewCostData(costData);
         setInputName("");
