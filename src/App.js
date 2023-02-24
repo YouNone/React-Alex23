@@ -26,6 +26,12 @@ const INITIAL_COSTS = [
     date: new Date(2020, 1, 11),
     description: "Gloves",
     amount: 30
+  },
+  {
+    id: 5,
+    date: new Date(2023, 3, 1),
+    description: "Hat",
+    amount: 200
   }
 ];
 

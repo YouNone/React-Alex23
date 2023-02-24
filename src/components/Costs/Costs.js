@@ -14,8 +14,6 @@ const Costs = (props) => {
     }
 
     //  forth solution, final
-   
-
     // Part third ternat solution before return
     // let costContent = filteredCosts.length === 0 ? <p>No purchases this year</p> : filteredCosts.map(cost =>
     //     <CostItem 
