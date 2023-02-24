@@ -1,36 +1,36 @@
-import './Costs.css';
-import Card from '../UI/Card';
-import CostsFilter from './CostsFilter';
-import { useState } from 'react';
-import CostList from './CostList';
+import "./Costs.css";
+import Card from "../UI/Card";
+import CostsFilter from "./CostsFilter";
+import { useState } from "react";
+import CostList from "./CostList";
 
 const Costs = (props) => {
-    const [selectedYear, setYear] = useState('2023');
-    const filteredCosts = props.costs.filter(cost => {
-        return cost.date.getFullYear().toString() === selectedYear
-    });
-    const onChangeYearHandler = (inputYearChangeData) => {
-        setYear(inputYearChangeData);
-    }
+  const [selectedYear, setYear] = useState("2023");
+  const filteredCosts = props.costs.filter((cost) => {
+    return cost.date.getFullYear().toString() === selectedYear;
+  });
+  const onChangeYearHandler = (inputYearChangeData) => {
+    setYear(inputYearChangeData);
+  };
 
-    //  forth solution, final
-    // Part third ternat solution before return
-    // let costContent = filteredCosts.length === 0 ? <p>No purchases this year</p> : filteredCosts.map(cost =>
-    //     <CostItem 
-    //         key={cost.id} 
-    //         date={cost.date} 
-    //         description={cost.description}
-    //         amount={cost.amount}
-    //     />
-    // );
-    
-    return (
-       <div>
-         <Card className='costs'>
-            <CostsFilter year={selectedYear} onChangeYear={onChangeYearHandler}/>
-            {/*!! frist hard to read code */}
+  //  forth solution, final
+  // Part third ternat solution before return
+  // let costContent = filteredCosts.length === 0 ? <p>No purchases this year</p> : filteredCosts.map(cost =>
+  //     <CostItem
+  //         key={cost.id}
+  //         date={cost.date}
+  //         description={cost.description}
+  //         amount={cost.amount}
+  //     />
+  // );
 
-            {/* {filteredCosts.length === 0 && <p>No purchases this year </p>} 
+  return (
+    <div>
+      <Card className="costs">
+        <CostsFilter year={selectedYear} onChangeYear={onChangeYearHandler} />
+        {/*!! frist hard to read code */}
+
+        {/* {filteredCosts.length === 0 && <p>No purchases this year </p>} 
             {filteredCosts.length > 0 && filteredCosts.map(cost =>
                 <CostItem 
                     key={cost.id} 
@@ -41,9 +41,9 @@ const Costs = (props) => {
                 )
             } */}
 
-            {/*!! second variant of the same code */}
+        {/*!! second variant of the same code */}
 
-            {/* {
+        {/* {
                 filteredCosts.length === 0 ? costContent : filteredCosts.map(cost =>
                     <CostItem 
                         key={cost.id} 
@@ -54,13 +54,12 @@ const Costs = (props) => {
                 )
             } */}
 
-            {/* third/ forth solution */}
-            {/* {costContent} */}
-            <CostList costs={filteredCosts} />
-
-        </Card>
-       </div>
-    )
-}
+        {/* third/ forth solution */}
+        {/* {costContent} */}
+        <CostList costs={filteredCosts} />
+      </Card>
+    </div>
+  );
+};
 
 export default Costs;

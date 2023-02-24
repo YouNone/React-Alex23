@@ -1,19 +1,19 @@
 import CostForm from "./CostForm";
-import "./NewCost.css"
+import "./NewCost.css";
 
 function NewCost(props) {
-    const saveCostDataHandler = (inputCostData) => {
-        // const costData = {
-        //     ...inputCostData,
-        // }
-        props.onAddCost(inputCostData)
-    };
+  const saveCostDataHandler = (inputCostData) => {
+    // const costData = {
+    //     ...inputCostData,
+    // }
+    props.onAddCost(inputCostData);
+  };
 
-    return (
-        <div className="new-cost">
-            <CostForm onSaveNewCostData={saveCostDataHandler} />
-        </div>
-    )
+  return (
+    <div className="new-cost">
+      <CostForm onSaveNewCostData={saveCostDataHandler} />
+    </div>
+  );
 }
 
 export default NewCost;
