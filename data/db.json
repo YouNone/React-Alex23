@@ -1,0 +1,34 @@
+{
+  "costs": [
+    {
+      "id": 1,
+      "date": "Thu Apr 01 2021 00:00:00 GMT+0300 (Eastern European Summer Time)",
+      "description": "Fridge",
+      "amount": 999.99
+    },
+    {
+      "id": 2,
+      "date": "Fri Dec 11 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
+      "description": "Laptop",
+      "amount": 1200
+    },
+    {
+      "id": 3,
+      "date": "Tue Feb 11 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
+      "description": "Jeans",
+      "amount": 49.99
+    },
+    {
+      "id": 4,
+      "date": "Tue Nov 11 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
+      "description": "Microwave",
+      "amount": 200
+    },
+    {
+      "id": 5,
+      "date": "Sat Apr 01 2023 00:00:00 GMT+0300 (Eastern European Summer Time)",
+      "description": "Hat",
+      "amount": 200
+    }
+  ]
+}

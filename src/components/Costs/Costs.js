@@ -8,7 +8,7 @@ import CostsDiagram from "./CostsDiagram";
 const Costs = (props) => {
   const [selectedYear, setYear] = useState("2023");
   const filteredCosts = props.costs.filter((cost) => {
-    return cost.date.getFullYear().toString() === selectedYear;
+    return new Date(cost.date).getFullYear().toString() === selectedYear;
   });
   const onChangeYearHandler = (inputYearChangeData) => {
     setYear(inputYearChangeData);

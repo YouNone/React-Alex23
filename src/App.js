@@ -1,42 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Costs from "./components/Costs/Costs";
 import NewCost from "./components/NewCost/NewCost";
 
-const INITIAL_COSTS = [
-  {
-    id: 1,
-    date: new Date(2022, 2, 12),
-    description: "Fridge",
-    amount: 999.99,
-  },
-  {
-    id: 2,
-    date: new Date(2021, 3, 1),
-    description: "Laptop",
-    amount: 1200,
-  },
-  {
-    id: 3,
-    date: new Date(2020, 11, 11),
-    description: "Jeans",
-    amount: 49.99,
-  },
-  {
-    id: 4,
-    date: new Date(2020, 1, 11),
-    description: "Gloves",
-    amount: 30,
-  },
-  {
-    id: 5,
-    date: new Date(2023, 3, 1),
-    description: "Hat",
-    amount: 200,
-  },
-];
-
+// npx json-server --watch data/db.json --port 8000
 function App() {
-  const [costs, setCosts] = useState(INITIAL_COSTS);
+  const [costs, setCosts] = useState(null);
   const addCostHandler = (cost) => {
     setCosts((prevCosts) => {
       return [cost, ...prevCosts];
@@ -44,10 +12,22 @@ function App() {
     // console.log(cost, "app comp");
   };
 
+  useEffect(() => {
+    // console.log("useEffect hook");
+    fetch("http://localhost:8000/costs")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        // console.log(data);
+        setCosts(data);
+      });
+  }, []);
+
   return (
     <div>
-      <NewCost onAddCost={addCostHandler}></NewCost>
-      <Costs costs={costs} />
+      {costs && <NewCost onAddCost={addCostHandler}></NewCost>}
+      {costs && <Costs costs={costs} />}
     </div>
   );
 }

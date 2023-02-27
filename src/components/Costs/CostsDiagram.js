@@ -17,7 +17,7 @@ function CostsDiagram(props) {
   ];
 
   for (const cost of props.costs) {
-    const costMonth = cost.date.getMonth();
+    const costMonth = new Date(cost.date).getMonth();
     // diagramDataSets[costMonth].value += cost.amount;
     diagramDataSets[costMonth].value += Number(cost.amount);
   }
