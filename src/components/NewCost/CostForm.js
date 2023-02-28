@@ -6,6 +6,7 @@ function CostForm(props) {
   const [inputName, setInputName] = useState("");
   const [inputAmount, setInputAmount] = useState("");
   const [inputDate, setInputDate] = useState("");
+  const [isPending, setPending] = useState(false);
 
   const [inputIsOpened, setInputIsOpened] = useState(false);
 
@@ -32,18 +33,10 @@ function CostForm(props) {
 
   const AmountChangeHandler = (event) => {
     setInputAmount(event.target.value);
-    // setUserInput({
-    //     ...userInput,
-    //     amount: event.target.value
-    // })
   };
 
   const DateChangeHandler = (event) => {
     setInputDate(event.target.value);
-    // setUserInput({
-    //     ...userInput,
-    //     date: event.target.value
-    // })
   };
 
   const SubmitHandler = (event) => {
@@ -54,6 +47,17 @@ function CostForm(props) {
       date: new Date(inputDate),
       id: uuidv4(),
     };
+
+    setPending(true);
+
+    fetch("http://localhost:8000/costs", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(costData),
+    }).then(() => {
+      console.log("new cost added", costData);
+      setPending(false);
+    });
     props.onSaveNewCostData(costData);
     setInputName("");
     setInputAmount("");
@@ -62,10 +66,10 @@ function CostForm(props) {
   };
 
   const CancelHandler = () => {
-    setInputIsOpened(false);
     setInputName("");
     setInputAmount("");
     setInputDate("");
+    setInputIsOpened(false);
   };
 
   const AddNewExpenseHandler = () => {
@@ -102,7 +106,13 @@ function CostForm(props) {
           </div>
         </div>
         <div className="new-cost__actions">
-          <button type="submit">Add expense</button>
+          {!isPending && <button type="submit">Add expense</button>}
+          {isPending && (
+            <button type="submit" disabled>
+              Adding expense...
+            </button>
+          )}
+
           <button type="button" onClick={CancelHandler} value={inputIsOpened}>
             Cancel
           </button>

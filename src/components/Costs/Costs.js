@@ -14,51 +14,11 @@ const Costs = (props) => {
     setYear(inputYearChangeData);
   };
 
-  //  forth solution, final
-  // Part third ternat solution before return
-  // let costContent = filteredCosts.length === 0 ? <p>No purchases this year</p> : filteredCosts.map(cost =>
-  //     <CostItem
-  //         key={cost.id}
-  //         date={cost.date}
-  //         description={cost.description}
-  //         amount={cost.amount}
-  //     />
-  // );
-
   return (
     <div>
       <Card className="costs">
         <CostsFilter year={selectedYear} onChangeYear={onChangeYearHandler} />
         <CostsDiagram costs={filteredCosts} />
-
-        {/*!! frist hard to read code */}
-
-        {/* {filteredCosts.length === 0 && <p>No purchases this year </p>} 
-            {filteredCosts.length > 0 && filteredCosts.map(cost =>
-                <CostItem 
-                    key={cost.id} 
-                    date={cost.date} 
-                    description={cost.description}
-                    amount={cost.amount}
-                />
-                )
-            } */}
-
-        {/*!! second variant of the same code */}
-
-        {/* {
-                filteredCosts.length === 0 ? costContent : filteredCosts.map(cost =>
-                    <CostItem 
-                        key={cost.id} 
-                        date={cost.date} 
-                        description={cost.description}
-                        amount={cost.amount}
-                    />
-                )
-            } */}
-
-        {/* third/ forth solution */}
-        {/* {costContent} */}
         <CostList costs={filteredCosts} />
       </Card>
     </div>

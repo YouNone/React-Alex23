@@ -19,16 +19,28 @@
       "amount": 49.99
     },
     {
+      "id": 6,
+      "date": "Tue Jun 01 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
+      "description": "Knife",
+      "amount": 500
+    },
+    {
       "id": 4,
       "date": "Tue Nov 11 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
       "description": "Microwave",
-      "amount": 200
+      "amount": 800
     },
     {
       "id": 5,
       "date": "Sat Apr 01 2023 00:00:00 GMT+0300 (Eastern European Summer Time)",
       "description": "Hat",
       "amount": 200
+    },
+    {
+      "description": "mouse",
+      "amount": "300",
+      "date": "2023-01-04T00:00:00.000Z",
+      "id": "6e3fc9e0-206b-450d-ab17-613411c8e33c"
     }
   ]
 }
