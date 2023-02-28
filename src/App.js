@@ -9,17 +9,18 @@ function App() {
     setCosts((prevCosts) => {
       return [cost, ...prevCosts];
     });
-    // console.log(cost, "app comp");
+  };
+
+  const updateListHandler = (clearCosts) => {
+    setCosts(clearCosts);
   };
 
   useEffect(() => {
-    // console.log("useEffect hook");
     fetch("http://localhost:8000/costs")
       .then((res) => {
         return res.json();
       })
       .then((data) => {
-        // console.log(data);
         setCosts(data);
       });
   }, []);
@@ -27,7 +28,7 @@ function App() {
   return (
     <div>
       {costs && <NewCost onAddCost={addCostHandler}></NewCost>}
-      {costs && <Costs costs={costs} />}
+      {costs && <Costs costs={costs} dataUpdate={updateListHandler} />}
     </div>
   );
 }

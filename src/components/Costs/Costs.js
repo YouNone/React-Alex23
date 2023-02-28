@@ -10,8 +10,16 @@ const Costs = (props) => {
   const filteredCosts = props.costs.filter((cost) => {
     return new Date(cost.date).getFullYear().toString() === selectedYear;
   });
+
   const onChangeYearHandler = (inputYearChangeData) => {
     setYear(inputYearChangeData);
+  };
+
+  const updateCostsHandler = (incomeId) => {
+    const changedCosts = filteredCosts.filter((cost) => {
+      return cost.id !== incomeId;
+    });
+    props.dataUpdate(changedCosts);
   };
 
   return (
@@ -19,7 +27,7 @@ const Costs = (props) => {
       <Card className="costs">
         <CostsFilter year={selectedYear} onChangeYear={onChangeYearHandler} />
         <CostsDiagram costs={filteredCosts} />
-        <CostList costs={filteredCosts} />
+        <CostList costs={filteredCosts} costsUpdate={updateCostsHandler} />
       </Card>
     </div>
   );

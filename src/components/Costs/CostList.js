@@ -5,6 +5,9 @@ function CostList(props) {
   if (props.costs.length === 0) {
     return <h2 className="cost-list__fallback"> No purchases this year</h2>;
   }
+  const passDataForUpdateHandler = (deletedId) => {
+    props.costsUpdate(deletedId);
+  };
 
   return (
     <ul className="cost-list">
@@ -15,6 +18,7 @@ function CostList(props) {
           date={cost.date}
           description={cost.description}
           amount={cost.amount}
+          refreshList={passDataForUpdateHandler}
         />
       ))}
     </ul>

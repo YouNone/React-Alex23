@@ -31,22 +31,22 @@
       "amount": 800
     },
     {
-      "id": 5,
-      "date": "Sat Apr 01 2023 00:00:00 GMT+0300 (Eastern European Summer Time)",
-      "description": "Hat",
-      "amount": 200
+      "description": "test data",
+      "amount": "200",
+      "date": "2022-12-12T00:00:00.000Z",
+      "id": "ccfd83b2-fcf1-4437-9516-ca137e92c6f8"
     },
     {
-      "description": "Mouse",
-      "amount": "300",
-      "date": "2023-01-04T00:00:00.000Z",
-      "id": "6e3fc9e0-206b-450d-ab17-613411c8e33c"
+      "description": "aratar",
+      "amount": "31231",
+      "date": "2023-06-06T00:00:00.000Z",
+      "id": "1a53739a-e806-43ab-9c8a-5c85fcf9c9b0"
     },
     {
-      "description": "anatoliy",
-      "amount": "123",
-      "date": "2023-02-09T00:00:00.000Z",
-      "id": "489aeb86-9c5a-445c-aab6-4704c43d7b4b"
+      "description": "opa opa kavabanga",
+      "amount": "23131312",
+      "date": "2023-02-02T00:00:00.000Z",
+      "id": "effa1f14-4fbd-403f-9411-de50df70f6ac"
     }
   ]
 }

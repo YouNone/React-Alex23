@@ -7,28 +7,10 @@ function CostForm(props) {
   const [inputAmount, setInputAmount] = useState("");
   const [inputDate, setInputDate] = useState("");
   const [isPending, setPending] = useState(false);
-
   const [inputIsOpened, setInputIsOpened] = useState(false);
-
-  //    const [userInput, setUserInput] = useState({
-  //         name: "",
-  //         amount: "",
-  //         date: ""
-  //     })
 
   const NameChangeHandler = (event) => {
     setInputName(event.target.value);
-    // setUserInput({
-    //     ...userInput,
-    //     name: event.target.value
-    // })
-    // get acutal 'fresh' pervious state
-    // setUserInput((prevState) => {
-    //     return {
-    //         ...prevState,
-    //         name: event.target.value
-    //     }
-    // });
   };
 
   const AmountChangeHandler = (event) => {
@@ -55,7 +37,7 @@ function CostForm(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(costData),
     }).then(() => {
-      console.log("new cost added", costData);
+      // console.log("new cost added", costData);
       setPending(false);
     });
     props.onSaveNewCostData(costData);

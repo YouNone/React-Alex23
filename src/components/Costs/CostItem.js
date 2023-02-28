@@ -3,12 +3,12 @@ import CostDate from "./CostDate";
 import "./CostItem.css";
 
 const CostItem = (props) => {
-  console.log(props);
+  // console.log(props);
   const onDeleteHandler = () => {
     fetch("http://localhost:8000/costs/" + props.id, {
       method: "DELETE",
     }).then(() => {
-      // place to redirect mb
+      props.refreshList(props.id);
     });
   };
 
