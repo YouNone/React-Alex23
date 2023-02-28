@@ -16,10 +16,11 @@ const Costs = (props) => {
   };
 
   const updateCostsHandler = (incomeId) => {
-    const changedCosts = filteredCosts.filter((cost) => {
-      return cost.id !== incomeId;
-    });
-    props.dataUpdate(changedCosts);
+    // const changedCosts = filteredCosts.filter((cost) => {
+    //   return cost.id !== incomeId;
+    // });
+    // console.log(incomeId, changedCosts);
+    props.dataUpdate(incomeId);
   };
 
   return (

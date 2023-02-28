@@ -11,8 +11,17 @@ function App() {
     });
   };
 
-  const updateListHandler = (clearCosts) => {
-    setCosts(clearCosts);
+  const updateListHandler = (itemId) => {
+    setCosts((prevCosts) => {
+      // console.log(deletedCost, prevCosts);
+      let res = prevCosts.filter((cost) => cost.id !== itemId);
+      // console.log("res - ", res);
+      // console.log("itemId - ", itemId);
+      // console.log("prevCosts -", prevCosts);
+      return [...res];
+      // return [prevCosts.filter((cost) => cost.id !== deletedCost.id)];
+      // return [clearCosts, ...prevCosts];
+    });
   };
 
   useEffect(() => {

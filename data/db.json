@@ -7,22 +7,10 @@
       "amount": 999.99
     },
     {
-      "id": 2,
-      "date": "Fri Dec 11 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
-      "description": "Laptop",
-      "amount": 1200
-    },
-    {
       "id": 3,
       "date": "Tue Feb 11 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
       "description": "Jeans",
       "amount": 49.99
-    },
-    {
-      "id": 6,
-      "date": "Tue Jun 01 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
-      "description": "Knife",
-      "amount": 500
     },
     {
       "id": 4,
@@ -37,16 +25,46 @@
       "id": "ccfd83b2-fcf1-4437-9516-ca137e92c6f8"
     },
     {
-      "description": "aratar",
-      "amount": "31231",
-      "date": "2023-06-06T00:00:00.000Z",
-      "id": "1a53739a-e806-43ab-9c8a-5c85fcf9c9b0"
+      "description": "Phone",
+      "amount": "600",
+      "date": "2023-03-03T00:00:00.000Z",
+      "id": "472d75fb-909c-4d1f-8c8b-31b857c4e0ca"
     },
     {
-      "description": "opa opa kavabanga",
-      "amount": "23131312",
+      "description": "Glasses",
+      "amount": "50",
+      "date": "2023-06-09T00:00:00.000Z",
+      "id": "56735be0-b6ae-4a38-8d34-d403125a7425"
+    },
+    {
+      "description": "tst",
+      "amount": "321",
+      "date": "2023-02-20T00:00:00.000Z",
+      "id": "f6b837e7-bc99-4b7f-ad7a-eb3116273829"
+    },
+    {
+      "description": "tst2",
+      "amount": "324",
       "date": "2023-02-02T00:00:00.000Z",
-      "id": "effa1f14-4fbd-403f-9411-de50df70f6ac"
+      "id": "321cdffd-b22e-463f-bb85-6f426be687a3"
+    },
+    {
+      "description": "tst4",
+      "amount": "321",
+      "date": "2023-05-04T00:00:00.000Z",
+      "id": "f41999e9-ba5f-40db-b66b-57913ec7d982"
+    },
+    {
+      "description": "tst3",
+      "amount": "321",
+      "date": "2023-01-01T00:00:00.000Z",
+      "id": "e75c9130-2c47-450b-a0be-413a73e3730e"
+    },
+    {
+      "description": "tst5",
+      "amount": "400",
+      "date": "2023-06-06T00:00:00.000Z",
+      "id": "2d3a2f76-c820-4d2d-b8cc-28a2d8bf6b59"
     }
   ]
 }

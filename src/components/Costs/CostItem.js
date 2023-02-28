@@ -8,8 +8,10 @@ const CostItem = (props) => {
     fetch("http://localhost:8000/costs/" + props.id, {
       method: "DELETE",
     }).then(() => {
+      // console.log(props.id);
       props.refreshList(props.id);
     });
+    // props.refreshList(props.id);
   };
 
   return (
