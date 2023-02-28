@@ -127,27 +127,6 @@ function CostForm(props) {
         Add new expense
       </button>
     </div>
-    // <form onSubmit={SubmitHandler}>
-    //     <div className="new-cost__controls">
-    //         <div className="new-cost__control">
-    //             <label>Name</label>
-    //             <input onChange={NameChangeHandler} value={inputName} type="text"/>
-    //         </div>
-    //         <div className="new-cost__control">
-    //             <label>Cost</label>
-    //             <input onChange={AmountChangeHandler} value={inputAmount} type="number" min="0.01" step="0.01" />
-    //         </div>
-    //         <div className="new-cost__control">
-    //             <label>Date</label>
-    //             <input onChange={DateChangeHandler} value={inputDate} type="date" min="21-01-01" step="2023-12-31" />
-    //         </div>
-    //     </div>
-    //     <div className="new-cost__actions">
-    //         <button type="submit">Add expense</button>
-    //         <button type="button" onClick={CancelHandler} value={inputIsOpened}>Cancel</button>
-
-    //     </div>
-    // </form>
   );
 }
 export default CostForm;

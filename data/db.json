@@ -37,10 +37,16 @@
       "amount": 200
     },
     {
-      "description": "mouse",
+      "description": "Mouse",
       "amount": "300",
       "date": "2023-01-04T00:00:00.000Z",
       "id": "6e3fc9e0-206b-450d-ab17-613411c8e33c"
+    },
+    {
+      "description": "anatoliy",
+      "amount": "123",
+      "date": "2023-02-09T00:00:00.000Z",
+      "id": "489aeb86-9c5a-445c-aab6-4704c43d7b4b"
     }
   ]
 }

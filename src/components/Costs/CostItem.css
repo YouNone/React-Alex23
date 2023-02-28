@@ -35,6 +35,24 @@
   border-radius: 12px;
 }
 
+.delete-button {
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+  border: 1px solid white;
+  background-color: rgb(177, 41, 41);
+  color: #fefae1;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 3px;
+}
+
+.delete-button:hover,
+.delete-button:active {
+  background-color: #700000b2;
+  border-color: white;
+}
+
 @media (min-width: 580px) {
   .cost-item__description {
     flex-direction: row;
