@@ -9,9 +9,12 @@ const CostItem = (props) => {
       method: "DELETE",
     }).then(() => {
       // console.log(props.id);
-      props.refreshList(props.id);
+      props.refreshAfterDelete(props.id);
     });
-    // props.refreshList(props.id);
+  };
+
+  const editCostHandler = () => {
+    props.passEditItem(props);
   };
 
   return (
@@ -23,6 +26,14 @@ const CostItem = (props) => {
           <div className="cost-item__price">${props.amount}</div>
         </div>
         <div>
+          <button
+            type="button"
+            onClick={editCostHandler}
+            className="edit-button"
+          >
+            Edit
+          </button>
+
           <button
             type="button"
             onClick={onDeleteHandler}

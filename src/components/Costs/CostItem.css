@@ -35,6 +35,24 @@
   border-radius: 12px;
 }
 
+.edit-button {
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.6rem 1rem;
+  border: 1px solid white;
+  background-color: rgb(41, 177, 48);
+  color: #fefae1;
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 3px;
+}
+
+.edit-button:hover,
+.edit-button:active {
+  background-color: #047000b2;
+  border-color: white;
+}
+
 .delete-button {
   font-size: 1.25rem;
   cursor: pointer;
