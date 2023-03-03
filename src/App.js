@@ -7,12 +7,17 @@ function App() {
   const [costs, setCosts] = useState(null);
   const [costToUpdate, setCostToUpdate] = useState(null);
 
-  // let foundIndex = prevCosts.findIndex((x) => x.id === cost.id);
-  // prevCosts[foundIndex] = cost;
-  // console.log(prevCosts);
   const addCostHandler = (cost) => {
     setCosts((prevCosts) => {
       return [cost, ...prevCosts];
+    });
+  };
+
+  const patchCostHandler = (cost) => {
+    setCosts((prevCosts) => {
+      let foundIndex = prevCosts.findIndex((x) => x.id === cost.id);
+      costs[foundIndex] = cost;
+      return [costs, ...prevCosts];
     });
   };
 
@@ -25,7 +30,6 @@ function App() {
 
   const updateDataHandler = (cost) => {
     setCostToUpdate(cost);
-    // console.log(cost);
   };
 
   useEffect(() => {
@@ -43,6 +47,7 @@ function App() {
       {costs && (
         <NewCost
           onAddCost={addCostHandler}
+          onPatchCost={patchCostHandler}
           costToUpdate={costToUpdate}
         ></NewCost>
       )}

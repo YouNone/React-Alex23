@@ -25,7 +25,7 @@ function CostForm(props) {
 
   useEffect(() => {
     if (props.costToUpdate) {
-      console.log(props.costToUpdate);
+      // console.log(props.costToUpdate);
       setInputName(props.costToUpdate.description);
       setInputAmount(props.costToUpdate.amount);
       setInputDate(formatDate(props.costToUpdate.date));
@@ -64,7 +64,7 @@ function CostForm(props) {
         console.log("PATCH", costData);
         setPending(false);
       });
-      // props.onSaveNewCostData(costData);
+      props.onSavePatchedCostData(costData);
       setInputName("");
       setInputAmount("");
       setInputDate("");
@@ -129,7 +129,7 @@ function CostForm(props) {
               onChange={DateChangeHandler}
               value={inputDate}
               type="date"
-              min="2020-12-31"
+              min="2020-1-1"
               max={curDate}
               step="2023-12-31"
             />

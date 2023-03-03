@@ -2,26 +2,26 @@
   "costs": [
     {
       "id": 1,
-      "date": "Thu Apr 01 2021 00:00:00 GMT+0300 (Eastern European Summer Time)",
-      "description": "Fridge",
-      "amount": 999.99
+      "date": "2021-10-03T00:00:00.000Z",
+      "description": "Mouse",
+      "amount": "250"
     },
     {
       "id": 3,
-      "date": "Tue Feb 11 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
+      "date": "2020-02-11T00:00:00.000Z",
       "description": "Jeans",
-      "amount": 49.99
+      "amount": "149.99"
     },
     {
       "id": 4,
-      "date": "Tue Nov 11 2020 00:00:00 GMT+0200 (Eastern European Standard Time)",
+      "date": "2020-11-11T00:00:00.000Z",
       "description": "Microwave",
-      "amount": 800
+      "amount": "500"
     },
     {
-      "description": "Boat",
-      "amount": "20000",
-      "date": "2022-02-02T00:00:00.000Z",
+      "description": "Headphones",
+      "amount": "700",
+      "date": "2022-03-02T00:00:00.000Z",
       "id": "ccfd83b2-fcf1-4437-9516-ca137e92c6f8"
     },
     {
@@ -31,9 +31,9 @@
       "id": "472d75fb-909c-4d1f-8c8b-31b857c4e0ca"
     },
     {
-      "description": "Glasses",
+      "description": "Sun glasses",
       "amount": "50",
-      "date": "2023-06-09T00:00:00.000Z",
+      "date": "2023-02-01T00:00:00.000Z",
       "id": "56735be0-b6ae-4a38-8d34-d403125a7425"
     },
     {
@@ -45,13 +45,13 @@
     {
       "description": "Coffee",
       "amount": "50",
-      "date": "2022-02-02T00:00:00.000Z",
+      "date": "2022-08-02T00:00:00.000Z",
       "id": "0a30e119-058f-4c5f-bc18-6be0fc234239"
     },
     {
-      "description": "Balloons",
-      "amount": "10",
-      "date": "2022-02-02T00:00:00.000Z",
+      "description": "Birthday present",
+      "amount": "200",
+      "date": "2022-07-07T00:00:00.000Z",
       "id": "65754c90-7913-4635-ac32-4fcadcb402e2"
     }
   ]
