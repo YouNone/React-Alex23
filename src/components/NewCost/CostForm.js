@@ -7,7 +7,6 @@ function formatDate(date) {
     month = "" + (d.getMonth() + 1),
     day = "" + d.getDate(),
     year = d.getFullYear();
-
   if (month.length < 2) month = "0" + month;
   if (day.length < 2) day = "0" + day;
 
@@ -25,7 +24,6 @@ function CostForm(props) {
 
   useEffect(() => {
     if (props.costToUpdate) {
-      // console.log(props.costToUpdate);
       setInputName(props.costToUpdate.description);
       setInputAmount(props.costToUpdate.amount);
       setInputDate(formatDate(props.costToUpdate.date));

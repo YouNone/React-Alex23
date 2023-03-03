@@ -1,6 +1,13 @@
 import "./CostsFilter.css";
 
 const CostsFilter = (props) => {
+  const recentYears = [
+    { value: 2023 },
+    { value: 2022 },
+    { value: 2021 },
+    { value: 2020 },
+  ];
+
   const yearChangeHandler = (event) => {
     props.onChangeYear(event.target.value);
   };
@@ -9,11 +16,12 @@ const CostsFilter = (props) => {
     <div className="costs-filter">
       <div className="costs-filter__control">
         <label>Select by year</label>
-        <select value={props.year} onChange={yearChangeHandler}>
-          <option value="2023">2023</option>
-          <option value="2022">2022</option>
-          <option value="2021">2021</option>
-          <option value="2020">2020</option>
+        <select onChange={yearChangeHandler}>
+          {recentYears.map((option, index) => (
+            <option key={index} value={option.value}>
+              {option.value}
+            </option>
+          ))}
         </select>
       </div>
     </div>
