@@ -13,10 +13,12 @@ function App() {
     });
   };
 
-  const patchCostHandler = (cost) => {
+  const patchCostHandler = (incomeCost) => {
     setCosts((prevCosts) => {
-      let foundIndex = prevCosts.findIndex((x) => x.id === cost.id);
-      costs[foundIndex] = cost;
+      let foundIndex = prevCosts.findIndex(
+        (prevCost) => prevCost.id === incomeCost.id
+      );
+      costs[foundIndex] = incomeCost;
       return [costs, ...prevCosts];
     });
   };
