@@ -45,7 +45,7 @@ function CostForm(props) {
 
   const SubmitHandler = (event) => {
     event.preventDefault();
-    if (props.costToUpdate) {
+    if (props.costToUpdate && inputName && inputAmount && inputDate) {
       const costData = {
         description: inputName,
         amount: inputAmount,
@@ -68,28 +68,30 @@ function CostForm(props) {
       setInputDate("");
       setInputIsOpened(false);
     } else {
-      const costData = {
-        description: inputName,
-        amount: inputAmount,
-        date: new Date(inputDate),
-        id: uuidv4(),
-      };
+      if (inputName && inputAmount && inputDate) {
+        const costData = {
+          description: inputName,
+          amount: inputAmount,
+          date: new Date(inputDate),
+          id: uuidv4(),
+        };
 
-      setPending(true);
+        setPending(true);
 
-      fetch("http://localhost:8000/costs", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(costData),
-      }).then(() => {
-        console.log("POST", costData);
-        setPending(false);
-      });
-      props.onSaveNewCostData(costData);
-      setInputName("");
-      setInputAmount("");
-      setInputDate("");
-      setInputIsOpened(false);
+        fetch("http://localhost:8000/costs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(costData),
+        }).then(() => {
+          console.log("POST", costData);
+          setPending(false);
+        });
+        props.onSaveNewCostData(costData);
+        setInputName("");
+        setInputAmount("");
+        setInputDate("");
+        setInputIsOpened(false);
+      }
     }
   };
 
