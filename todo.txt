@@ -1,5 +1,6 @@
 1. Patch bug (if you do patch request, all requests after (post, patch) will be PATCH mb some scope stores previous data, such as ids)
 2. Add error dialog +
-3. Add validation
+3. Add validation +
 4. Add confirmation dialog
 5. Add css moduling +
+6. on delete clear inputs (and clouse  adding panel)?

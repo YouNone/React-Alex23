@@ -28,3 +28,8 @@
 .invalid {
   color: red;
 }
+
+.form-control.invalid input {
+  border-color: red;
+  /* background-color: rgb(247, 121, 121); */
+}

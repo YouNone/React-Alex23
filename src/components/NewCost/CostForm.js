@@ -23,6 +23,10 @@ function CostForm(props) {
   const [inputIsOpened, setInputIsOpened] = useState(false);
   const [error, setError] = useState(undefined);
 
+  const [isNameValid, setNameValid] = useState(true);
+  const [isCostValid, setCostValid] = useState(true);
+  const [isDateValid, setDateValid] = useState(true);
+
   const curDate = new Date().toJSON().slice(0, 10);
 
   useEffect(() => {
@@ -35,14 +39,23 @@ function CostForm(props) {
   }, [props.costToUpdate]);
 
   const NameChangeHandler = (event) => {
+    if (event.target.value.trim().length > 0) {
+      setNameValid(true);
+    }
     setInputName(event.target.value);
   };
 
   const AmountChangeHandler = (event) => {
+    if (event.target.value.trim().length > 0) {
+      setCostValid(true);
+    }
     setInputAmount(event.target.value);
   };
 
   const DateChangeHandler = (event) => {
+    if (event.target.value.trim().length > 0) {
+      setDateValid(true);
+    }
     setInputDate(event.target.value);
   };
 
@@ -106,6 +119,9 @@ function CostForm(props) {
       case inputName.trim().length === 0 &&
         inputAmount.trim().length === 0 &&
         inputDate.trim().length === 0:
+        setNameValid(false);
+        setCostValid(false);
+        setDateValid(false);
         setError({
           title: "incorrect input: Empty form",
           message: "Form cannot be empty",
@@ -113,6 +129,8 @@ function CostForm(props) {
         break;
 
       case inputName.trim().length === 0 && inputAmount.trim().length === 0:
+        setNameValid(false);
+        setCostValid(false);
         setError({
           title: "incorrect input: empty fields",
           message: "Form fields 'Name' & 'Cost' cannot be empty",
@@ -120,6 +138,8 @@ function CostForm(props) {
         break;
 
       case inputAmount.trim().length === 0 && inputDate.trim().length === 0:
+        setCostValid(false);
+        setDateValid(false);
         setError({
           title: "incorrect input: empty fields",
           message: "Form fields 'Cost' & 'Date' cannot be empty",
@@ -127,6 +147,8 @@ function CostForm(props) {
         break;
 
       case inputName.trim().length === 0 && inputDate.trim().length === 0:
+        setNameValid(false);
+        setDateValid(false);
         setError({
           title: "incorrect input: empty fields",
           message: "Form fields 'Name' & 'Date' cannot be empty",
@@ -134,6 +156,7 @@ function CostForm(props) {
         break;
 
       case inputName.trim().length === 0:
+        setNameValid(false);
         setError({
           title: "incorrect input: Fied 'Name' to short",
           message: "Fied 'Name' cannot be empty",
@@ -141,6 +164,7 @@ function CostForm(props) {
         break;
 
       case inputDate.trim().length === 0:
+        setDateValid(false);
         setError({
           title: "incorrect input: Fied 'Date' to short",
           message: "Fied 'Date' cannot be empty",
@@ -148,6 +172,7 @@ function CostForm(props) {
         break;
 
       case inputAmount.trim().length === 0:
+        setCostValid(false);
         setError({
           title: "incorrect input: Fied 'Cost' to short",
           message: "Fied 'Cost' cannot be empty",
@@ -155,6 +180,7 @@ function CostForm(props) {
         break;
 
       case +inputAmount < 1:
+        setCostValid(false);
         setError({
           title: "incorrect input",
           message: "Fied 'Amount' cannot be less than 1",
@@ -245,7 +271,11 @@ function CostForm(props) {
         )}
         <form onSubmit={SubmitHandler}>
           <div className={styles["form-controls"]}>
-            <div className={styles["form-control"]}>
+            <div
+              className={`${styles["form-control"]} ${
+                !isNameValid && styles.invalid
+              }`}
+            >
               <label>Name</label>
               <input
                 onChange={NameChangeHandler}
@@ -253,7 +283,11 @@ function CostForm(props) {
                 type="text"
               />
             </div>
-            <div className={styles["form-control"]}>
+            <div
+              className={`${styles["form-control"]} ${
+                !isCostValid && styles.invalid
+              }`}
+            >
               <label>Cost</label>
               <input
                 onChange={AmountChangeHandler}
@@ -263,7 +297,11 @@ function CostForm(props) {
                 step="0.01"
               />
             </div>
-            <div className={styles["form-control"]}>
+            <div
+              className={`${styles["form-control"]} ${
+                !isDateValid && styles.invalid
+              }`}
+            >
               <label>Date</label>
               <input
                 onChange={DateChangeHandler}
