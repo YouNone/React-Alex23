@@ -1,5 +1,5 @@
 import CostForm from "./CostForm";
-import "./NewCost.css";
+import styles from "./NewCost.module.css";
 
 function NewCost(props) {
   const saveCostDataHandler = (inputCostData) => {
@@ -11,7 +11,7 @@ function NewCost(props) {
   };
 
   return (
-    <div className="new-cost">
+    <div className={styles["new-cost"]}>
       <CostForm
         onSaveNewCostData={saveCostDataHandler}
         onSavePatchedCostData={savePatchedCostDataHandler}

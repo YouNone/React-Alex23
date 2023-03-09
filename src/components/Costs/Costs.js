@@ -1,4 +1,4 @@
-import "./Costs.css";
+import styles from "./Costs.module.css";
 import Card from "../UI/Card";
 import CostsFilter from "./CostsFilter";
 import { useState } from "react";
@@ -25,7 +25,7 @@ const Costs = (props) => {
 
   return (
     <div>
-      <Card className="costs">
+      <Card className={styles["costs"]}>
         <CostsFilter year={selectedYear} onChangeYear={onChangeYearHandler} />
         <CostsDiagram costs={filteredCosts} />
         <CostList

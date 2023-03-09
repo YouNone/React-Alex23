@@ -1,6 +1,6 @@
 import Card from "../UI/Card";
 import CostDate from "./CostDate";
-import "./CostItem.css";
+import styles from "./CostItem.module.css";
 
 const CostItem = (props) => {
   const onDeleteHandler = () => {
@@ -17,17 +17,17 @@ const CostItem = (props) => {
 
   return (
     <li>
-      <Card className="cost-item">
+      <Card className={styles["cost-item"]}>
         <CostDate date={props.date} />
-        <div className="cost-item__description">
+        <div className={styles["cost-item__description"]}>
           <h2>{props.description}</h2>
-          <div className="cost-item__price">${props.amount}</div>
+          <div className={styles["cost-item__price"]}>${props.amount}</div>
         </div>
         <div>
           <button
             type="button"
             onClick={editCostHandler}
-            className="edit-button"
+            className={styles["edit-button"]}
           >
             Edit
           </button>
@@ -35,7 +35,7 @@ const CostItem = (props) => {
           <button
             type="button"
             onClick={onDeleteHandler}
-            className="delete-button"
+            className={styles["delete-button"]}
           >
             Delete
           </button>

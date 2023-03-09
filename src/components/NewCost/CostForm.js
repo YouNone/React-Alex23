@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./CostForm.css";
+import styles from "./CostForm.module.css";
 import { v4 as uuidv4 } from "uuid";
 import ErrorModal from "../UI/ErrorModal";
 import Button from "../UI/Button";
@@ -244,8 +244,8 @@ function CostForm(props) {
           />
         )}
         <form onSubmit={SubmitHandler}>
-          <div className="new-cost__controls">
-            <div className="new-cost__control">
+          <div className={styles["form-controls"]}>
+            <div className={styles["form-control"]}>
               <label>Name</label>
               <input
                 onChange={NameChangeHandler}
@@ -253,7 +253,7 @@ function CostForm(props) {
                 type="text"
               />
             </div>
-            <div className="new-cost__control">
+            <div className={styles["form-control"]}>
               <label>Cost</label>
               <input
                 onChange={AmountChangeHandler}
@@ -263,7 +263,7 @@ function CostForm(props) {
                 step="0.01"
               />
             </div>
-            <div className="new-cost__control">
+            <div className={styles["form-control"]}>
               <label>Date</label>
               <input
                 onChange={DateChangeHandler}
@@ -275,14 +275,13 @@ function CostForm(props) {
               />
             </div>
           </div>
-          <div className="new-cost__actions">
+          <div className={styles["new-cost-actions"]}>
             {!isPending && <Button type="submit">Add expense</Button>}
             {isPending && (
               <Button type="submit" disabled>
                 Adding expense...
               </Button>
             )}
-
             <Button type="button" onClick={CancelHandler} value={inputIsOpened}>
               Cancel
             </Button>

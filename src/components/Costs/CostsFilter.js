@@ -1,4 +1,4 @@
-import "./CostsFilter.css";
+import styles from "./CostsFilter.module.css";
 
 const CostsFilter = (props) => {
   const recentYears = [
@@ -13,8 +13,8 @@ const CostsFilter = (props) => {
   };
 
   return (
-    <div className="costs-filter">
-      <div className="costs-filter__control">
+    <div className={styles["costs-filter"]}>
+      <div className={styles["costs-filter__control"]}>
         <label>Select by year</label>
         <select onChange={yearChangeHandler}>
           {recentYears.map((option, index) => (

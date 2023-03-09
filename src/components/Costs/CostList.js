@@ -1,9 +1,11 @@
 import CostItem from "./CostItem";
-import "./CostList.css";
+import styles from "./CostList.module.css";
 
 function CostList(props) {
   if (props.costs.length === 0) {
-    return <h2 className="cost-list__fallback"> No purchases this year</h2>;
+    return (
+      <h2 className={styles["cost-list__fallback"]}> No purchases this year</h2>
+    );
   }
   const passDataForUpdateHandler = (deletedId) => {
     props.costDelete(deletedId);
@@ -14,7 +16,7 @@ function CostList(props) {
   };
 
   return (
-    <ul className="cost-list">
+    <ul className={styles["cost-list"]}>
       {props.costs.map((cost) => (
         <CostItem
           key={cost.id}
