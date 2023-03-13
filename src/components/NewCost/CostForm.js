@@ -38,6 +38,15 @@ function CostForm(props) {
     }
   }, [props.costToUpdate]);
 
+  useEffect(() => {
+    if (props.clearFields) {
+      setInputName("");
+      setInputAmount("");
+      setInputDate("");
+      setInputIsOpened(false);
+    }
+  }, [props.clearFields]);
+
   const NameChangeHandler = (event) => {
     if (event.target.value.trim().length > 0) {
       setNameValid(true);
@@ -199,54 +208,6 @@ function CostForm(props) {
   const SubmitHandler = (event) => {
     event.preventDefault();
     validateForm();
-    // if (props.costToUpdate && inputName && inputAmount && inputDate) {
-    //   const costData = {
-    //     description: inputName,
-    //     amount: inputAmount,
-    //     date: new Date(inputDate),
-    //     id: props.costToUpdate.id,
-    //   };
-
-    //   setPending(true);
-    //   fetch("http://localhost:8000/costs/" + props.costToUpdate.id, {
-    //     method: "PATCH",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(costData),
-    //   }).then(() => {
-    //     console.log("PATCH", costData);
-    //     setPending(false);
-    //   });
-    //   props.onSavePatchedCostData(costData);
-    //   setInputName("");
-    //   setInputAmount("");
-    //   setInputDate("");
-    //   setInputIsOpened(false);
-    // } else {
-    //   if (inputName && inputAmount && inputDate) {
-    //     const costData = {
-    //       description: inputName,
-    //       amount: inputAmount,
-    //       date: new Date(inputDate),
-    //       id: uuidv4(),
-    //     };
-
-    //     setPending(true);
-
-    //     fetch("http://localhost:8000/costs", {
-    //       method: "POST",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify(costData),
-    //     }).then(() => {
-    //       console.log("POST", costData);
-    //       setPending(false);
-    //     });
-    //     props.onSaveNewCostData(costData);
-    //     setInputName("");
-    //     setInputAmount("");
-    //     setInputDate("");
-    //     setInputIsOpened(false);
-    //   }
-    // }
   };
 
   const CancelHandler = () => {
@@ -254,6 +215,12 @@ function CostForm(props) {
     setInputAmount("");
     setInputDate("");
     setInputIsOpened(false);
+  };
+
+  const ClearlHandler = () => {
+    setInputName("");
+    setInputAmount("");
+    setInputDate("");
   };
 
   const AddNewExpenseHandler = () => {
@@ -320,6 +287,10 @@ function CostForm(props) {
                 Adding expense...
               </Button>
             )}
+            <Button type="button" onClick={ClearlHandler} value={inputIsOpened}>
+              Clear
+            </Button>
+
             <Button type="button" onClick={CancelHandler} value={inputIsOpened}>
               Cancel
             </Button>

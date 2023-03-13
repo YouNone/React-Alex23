@@ -8,7 +8,10 @@ const CostItem = (props) => {
       method: "DELETE",
     }).then(() => {
       props.refreshAfterDelete(props.id);
+      props.clearInputs(true);
     });
+    // props.refreshAfterDelete(props.id);
+    // props.clearInputs(true);
   };
 
   const editCostHandler = () => {

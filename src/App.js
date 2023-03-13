@@ -3,9 +3,11 @@ import Costs from "./components/Costs/Costs";
 import NewCost from "./components/NewCost/NewCost";
 
 // npx json-server --watch data/db.json --port 8000
+
 function App() {
   const [costs, setCosts] = useState(null);
   const [costToUpdate, setCostToUpdate] = useState(null);
+  const [inputFlag, setInputFlag] = useState(null);
 
   const addCostHandler = (cost) => {
     setCosts((prevCosts) => {
@@ -34,6 +36,10 @@ function App() {
     setCostToUpdate(cost);
   };
 
+  const clearCostHandler = (flag) => {
+    setInputFlag(flag);
+  };
+
   useEffect(() => {
     fetch("http://localhost:8000/costs")
       .then((res) => {
@@ -51,6 +57,7 @@ function App() {
           onAddCost={addCostHandler}
           onPatchCost={patchCostHandler}
           costToUpdate={costToUpdate}
+          isInputClear={inputFlag}
         ></NewCost>
       )}
       {costs && (
@@ -58,6 +65,7 @@ function App() {
           costs={costs}
           dataDelete={updateListHandler}
           dataUpdate={updateDataHandler}
+          clearCostPass={clearCostHandler}
         />
       )}
     </div>

@@ -4,5 +4,6 @@
 4. Add css moduling. +
 5. move error modal to portal (devide into backdrop and modal 2 divs). +
 6. Add confirmation dialog.
-7. on delete clear inputs (and clouse adding panel)?
-8. add login component, logout button.
+7. on delete clear inputs (and close adding panel) +
+8. add clear button. +
+9. add login component, logout button.

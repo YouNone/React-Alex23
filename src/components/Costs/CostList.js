@@ -15,6 +15,10 @@ function CostList(props) {
     props.costUpdate(cost);
   };
 
+  const clearInputsHandler = (flag) => {
+    props.costClear(flag);
+  };
+
   return (
     <ul className={styles["cost-list"]}>
       {props.costs.map((cost) => (
@@ -25,6 +29,7 @@ function CostList(props) {
           description={cost.description}
           amount={cost.amount}
           refreshAfterDelete={passDataForUpdateHandler}
+          clearInputs={clearInputsHandler}
           passEditItem={updateCostHandler}
         />
       ))}

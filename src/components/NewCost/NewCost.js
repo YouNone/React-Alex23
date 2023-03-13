@@ -13,9 +13,11 @@ function NewCost(props) {
   return (
     <div className={styles["new-cost"]}>
       <CostForm
+        inputPass={props.isInputClear}
         onSaveNewCostData={saveCostDataHandler}
         onSavePatchedCostData={savePatchedCostDataHandler}
         costToUpdate={props.costToUpdate}
+        clearFields={props.isInputClear}
       />
     </div>
   );

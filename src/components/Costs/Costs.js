@@ -23,6 +23,10 @@ const Costs = (props) => {
     props.dataUpdate(costToUpdate);
   };
 
+  const costClearHandler = (flag) => {
+    props.clearCostPass(flag);
+  };
+
   return (
     <div>
       <Card className={styles["costs"]}>
@@ -32,6 +36,7 @@ const Costs = (props) => {
           costs={filteredCosts}
           costDelete={costDeleteHandler}
           costUpdate={costUpdateHandler}
+          costClear={costClearHandler}
         />
       </Card>
     </div>
