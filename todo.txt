@@ -7,3 +7,4 @@
 7. on delete clear inputs (and close adding panel) +
 8. add clear button. +
 9. add login component, logout button.
+10. Implement useContext hook, ContextProvider where it is suitable.

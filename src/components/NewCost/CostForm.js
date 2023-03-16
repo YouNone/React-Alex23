@@ -19,6 +19,7 @@ function CostForm(props) {
   const [inputName, setInputName] = useState("");
   const [inputAmount, setInputAmount] = useState("");
   const [inputDate, setInputDate] = useState("");
+
   const [isPending, setPending] = useState(false);
   const [inputIsOpened, setInputIsOpened] = useState(false);
   const [error, setError] = useState(undefined);
@@ -198,9 +199,6 @@ function CostForm(props) {
 
       default:
         sendCost();
-        // props.onSaveUser(inputName, inputAmount, uuidv4());
-        // setInputName("");
-        // setInputAge("");
         break;
     }
   }
@@ -217,15 +215,10 @@ function CostForm(props) {
     setInputIsOpened(false);
   };
 
-  const ClearlHandler = () => {
-    setInputName("");
-    setInputAmount("");
-    setInputDate("");
-  };
-
   const AddNewExpenseHandler = () => {
     setInputIsOpened(true);
   };
+
   if (inputIsOpened) {
     return (
       <div>
@@ -287,10 +280,6 @@ function CostForm(props) {
                 Adding expense...
               </Button>
             )}
-            <Button type="button" onClick={ClearlHandler} value={inputIsOpened}>
-              Clear
-            </Button>
-
             <Button type="button" onClick={CancelHandler} value={inputIsOpened}>
               Cancel
             </Button>

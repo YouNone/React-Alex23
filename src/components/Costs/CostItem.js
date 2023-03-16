@@ -1,3 +1,4 @@
+import React from "react";
 import Card from "../UI/Card";
 import CostDate from "./CostDate";
 import styles from "./CostItem.module.css";
@@ -10,8 +11,6 @@ const CostItem = (props) => {
       props.refreshAfterDelete(props.id);
       props.clearInputs(true);
     });
-    // props.refreshAfterDelete(props.id);
-    // props.clearInputs(true);
   };
 
   const editCostHandler = () => {

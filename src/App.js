@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Costs from "./components/Costs/Costs";
 import NewCost from "./components/NewCost/NewCost";
 
@@ -8,7 +8,6 @@ function App() {
   const [costs, setCosts] = useState(null);
   const [costToUpdate, setCostToUpdate] = useState(null);
   const [inputFlag, setInputFlag] = useState(null);
-
   const addCostHandler = (cost) => {
     setCosts((prevCosts) => {
       return [cost, ...prevCosts];
@@ -25,7 +24,7 @@ function App() {
     });
   };
 
-  const updateListHandler = (itemId) => {
+  const deleteCostHandler = (itemId) => {
     setCosts((prevCosts) => {
       let res = prevCosts.filter((cost) => cost.id !== itemId);
       return [...res];
@@ -63,9 +62,9 @@ function App() {
       {costs && (
         <Costs
           costs={costs}
-          dataDelete={updateListHandler}
+          dataDelete={deleteCostHandler}
           dataUpdate={updateDataHandler}
-          clearCostPass={clearCostHandler}
+          clearCostInp={clearCostHandler}
         />
       )}
     </div>

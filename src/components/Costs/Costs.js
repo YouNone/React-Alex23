@@ -24,7 +24,7 @@ const Costs = (props) => {
   };
 
   const costClearHandler = (flag) => {
-    props.clearCostPass(flag);
+    props.clearCostInp(flag);
   };
 
   return (

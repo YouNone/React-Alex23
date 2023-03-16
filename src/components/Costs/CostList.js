@@ -1,3 +1,4 @@
+import React from "react";
 import CostItem from "./CostItem";
 import styles from "./CostList.module.css";
 
