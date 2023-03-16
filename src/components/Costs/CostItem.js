@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import ConstContext from "../context/CostContext";
 import Card from "../UI/Card";
 import CostDate from "./CostDate";
 import styles from "./CostItem.module.css";
 
 const CostItem = (props) => {
+  const ctx = useContext(ConstContext);
   const onDeleteHandler = () => {
     fetch("http://localhost:8000/costs/" + props.id, {
       method: "DELETE",
     }).then(() => {
-      props.refreshAfterDelete(props.id);
+      ctx.deleteCostHandler(props.id);
       props.clearInputs(true);
     });
   };

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ConstContext from "./components/context/CostContext";
 import Costs from "./components/Costs/Costs";
 import NewCost from "./components/NewCost/NewCost";
 
@@ -60,12 +61,13 @@ function App() {
         ></NewCost>
       )}
       {costs && (
-        <Costs
-          costs={costs}
-          dataDelete={deleteCostHandler}
-          dataUpdate={updateDataHandler}
-          clearCostInp={clearCostHandler}
-        />
+        <ConstContext.Provider value={{ deleteCostHandler }}>
+          <Costs
+            costs={costs}
+            dataUpdate={updateDataHandler}
+            clearCostInp={clearCostHandler}
+          />
+        </ConstContext.Provider>
       )}
     </div>
   );

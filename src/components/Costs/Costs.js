@@ -15,10 +15,6 @@ const Costs = (props) => {
     setYear(inputYearChangeData);
   };
 
-  const costDeleteHandler = (incomeId) => {
-    props.dataDelete(incomeId);
-  };
-
   const costUpdateHandler = (costToUpdate) => {
     props.dataUpdate(costToUpdate);
   };
@@ -34,7 +30,6 @@ const Costs = (props) => {
         <CostsDiagram costs={filteredCosts} />
         <CostList
           costs={filteredCosts}
-          costDelete={costDeleteHandler}
           costUpdate={costUpdateHandler}
           costClear={costClearHandler}
         />
