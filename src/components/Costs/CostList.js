@@ -9,10 +9,6 @@ function CostList(props) {
     );
   }
 
-  const updateCostHandler = (cost) => {
-    props.costUpdate(cost);
-  };
-
   const clearInputsHandler = (flag) => {
     props.costClear(flag);
   };
@@ -27,7 +23,6 @@ function CostList(props) {
           description={cost.description}
           amount={cost.amount}
           clearInputs={clearInputsHandler}
-          passEditItem={updateCostHandler}
         />
       ))}
     </ul>

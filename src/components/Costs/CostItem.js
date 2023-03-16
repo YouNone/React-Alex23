@@ -6,6 +6,7 @@ import styles from "./CostItem.module.css";
 
 const CostItem = (props) => {
   const ctx = useContext(ConstContext);
+  ctx.cost = props;
   const onDeleteHandler = () => {
     fetch("http://localhost:8000/costs/" + props.id, {
       method: "DELETE",
@@ -16,7 +17,7 @@ const CostItem = (props) => {
   };
 
   const editCostHandler = () => {
-    props.passEditItem(props);
+    ctx.updateDataHandler(props);
   };
 
   return (

@@ -9,6 +9,7 @@ function App() {
   const [costs, setCosts] = useState(null);
   const [costToUpdate, setCostToUpdate] = useState(null);
   const [inputFlag, setInputFlag] = useState(null);
+
   const addCostHandler = (cost) => {
     setCosts((prevCosts) => {
       return [cost, ...prevCosts];
@@ -61,12 +62,8 @@ function App() {
         ></NewCost>
       )}
       {costs && (
-        <ConstContext.Provider value={{ deleteCostHandler }}>
-          <Costs
-            costs={costs}
-            dataUpdate={updateDataHandler}
-            clearCostInp={clearCostHandler}
-          />
+        <ConstContext.Provider value={{ deleteCostHandler, updateDataHandler }}>
+          <Costs costs={costs} clearCostInp={clearCostHandler} />
         </ConstContext.Provider>
       )}
     </div>
