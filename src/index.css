@@ -7,3 +7,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.no-costs {
+  display: flex;
+  height: 70px;
+  width: 270px;
+  border-radius: 10px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.25);
+  background-color: #aac4d1;
+  margin: 0 auto;
+}
+.no-costs h2 {
+  margin: 0 auto;
+  padding-top: 15px;
+  color: white;
+}

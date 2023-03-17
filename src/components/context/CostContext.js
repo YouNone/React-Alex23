@@ -3,6 +3,7 @@ import React from "react";
 const ConstContext = React.createContext({
   deleteCostHandler: () => {},
   updateDataHandler: () => {},
-  clearCostInp: () => {},
+  clearCostHandler: () => {},
+  costs: [],
 });
 export default ConstContext;

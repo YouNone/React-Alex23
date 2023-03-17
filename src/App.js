@@ -62,9 +62,16 @@ function App() {
         ></NewCost>
       )}
       {costs && (
-        <ConstContext.Provider value={{ deleteCostHandler, updateDataHandler }}>
-          <Costs costs={costs} clearCostInp={clearCostHandler} />
+        <ConstContext.Provider
+          value={{ deleteCostHandler, updateDataHandler, clearCostHandler }}
+        >
+          <Costs costs={costs} />
         </ConstContext.Provider>
+      )}
+      {!costs && (
+        <div className="no-costs">
+          <h2>No costs</h2>
+        </div>
       )}
     </div>
   );

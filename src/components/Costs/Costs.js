@@ -14,17 +14,12 @@ const Costs = (props) => {
   const onChangeYearHandler = (inputYearChangeData) => {
     setYear(inputYearChangeData);
   };
-
-  const costClearHandler = (flag) => {
-    props.clearCostInp(flag);
-  };
-
   return (
     <div>
       <Card className={styles["costs"]}>
         <CostsFilter year={selectedYear} onChangeYear={onChangeYearHandler} />
         <CostsDiagram costs={filteredCosts} />
-        <CostList costs={filteredCosts} costClear={costClearHandler} />
+        <CostList costs={filteredCosts} />
       </Card>
     </div>
   );

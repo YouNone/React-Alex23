@@ -6,13 +6,12 @@ import styles from "./CostItem.module.css";
 
 const CostItem = (props) => {
   const ctx = useContext(ConstContext);
-  ctx.cost = props;
   const onDeleteHandler = () => {
     fetch("http://localhost:8000/costs/" + props.id, {
       method: "DELETE",
     }).then(() => {
       ctx.deleteCostHandler(props.id);
-      props.clearInputs(true);
+      ctx.clearCostHandler(true);
     });
   };
 

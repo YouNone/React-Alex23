@@ -9,10 +9,6 @@ function CostList(props) {
     );
   }
 
-  const clearInputsHandler = (flag) => {
-    props.costClear(flag);
-  };
-
   return (
     <ul className={styles["cost-list"]}>
       {props.costs.map((cost) => (
@@ -22,7 +18,6 @@ function CostList(props) {
           date={cost.date}
           description={cost.description}
           amount={cost.amount}
-          clearInputs={clearInputsHandler}
         />
       ))}
     </ul>
