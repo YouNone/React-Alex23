@@ -63,9 +63,14 @@ function App() {
       )}
       {costs && (
         <ConstContext.Provider
-          value={{ deleteCostHandler, updateDataHandler, clearCostHandler }}
+          value={{
+            deleteCostHandler,
+            updateDataHandler,
+            clearCostHandler,
+            costs,
+          }}
         >
-          <Costs costs={costs} />
+          <Costs />
         </ConstContext.Provider>
       )}
       {!costs && (
