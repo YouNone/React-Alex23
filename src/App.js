@@ -52,33 +52,33 @@ function App() {
   }, []);
 
   return (
-    <div>
-      {costs && (
-        <NewCost
-          onAddCost={addCostHandler}
-          onPatchCost={patchCostHandler}
-          costToUpdate={costToUpdate}
-          isInputClear={inputFlag}
-        ></NewCost>
-      )}
-      {costs && (
-        <ConstContext.Provider
-          value={{
-            deleteCostHandler,
-            updateDataHandler,
-            clearCostHandler,
-            costs,
-          }}
-        >
-          <Costs />
-        </ConstContext.Provider>
-      )}
-      {!costs && (
-        <div className="no-costs">
-          <h2>No costs</h2>
-        </div>
-      )}
-    </div>
+    <ConstContext.Provider
+      value={{
+        // NewCost
+        patchCostHandler,
+        addCostHandler,
+        // Cost
+        costs,
+        deleteCostHandler,
+        updateDataHandler,
+        clearCostHandler,
+      }}
+    >
+      <div>
+        {costs && (
+          <NewCost
+            costToUpdate={costToUpdate}
+            isInputClear={inputFlag}
+          ></NewCost>
+        )}
+        {costs && <Costs />}
+        {!costs && (
+          <div className="no-costs">
+            <h2>No costs</h2>
+          </div>
+        )}
+      </div>
+    </ConstContext.Provider>
   );
 }
 

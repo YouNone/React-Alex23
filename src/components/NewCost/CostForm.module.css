@@ -5,31 +5,3 @@
   margin-bottom: 1rem;
   text-align: left;
 }
-
-.form-control label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  display: block;
-}
-
-.form-control input {
-  font: inherit;
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 20rem;
-  max-width: 100%;
-}
-
-.new-cost-actions {
-  text-align: left;
-}
-
-.invalid {
-  color: red;
-}
-
-.form-control.invalid input {
-  border-color: red;
-  /* background-color: rgb(247, 121, 121); */
-}

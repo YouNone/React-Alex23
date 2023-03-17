@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./CostForm.module.css";
 import { v4 as uuidv4 } from "uuid";
 import ErrorModal from "../UI/ErrorModal";
 import Button from "../UI/Button";
+import ConstContext from "../context/CostContext";
+import Input from "../UI/Input/Input";
 
 function formatDate(date) {
   var d = new Date(date),
@@ -29,6 +31,8 @@ function CostForm(props) {
   const [isDateValid, setDateValid] = useState(true);
 
   const curDate = new Date().toJSON().slice(0, 10);
+
+  const cntx = useContext(ConstContext);
 
   useEffect(() => {
     if (props.costToUpdate) {
@@ -91,7 +95,7 @@ function CostForm(props) {
         console.log("PATCH", costData);
         setPending(false);
       });
-      props.onSavePatchedCostData(costData);
+      cntx.patchCostHandler(costData);
       setInputName("");
       setInputAmount("");
       setInputDate("");
@@ -115,7 +119,7 @@ function CostForm(props) {
           console.log("POST", costData);
           setPending(false);
         });
-        props.onSaveNewCostData(costData);
+        cntx.addCostHandler(costData);
         setInputName("");
         setInputAmount("");
         setInputDate("");
@@ -231,33 +235,34 @@ function CostForm(props) {
         )}
         <form onSubmit={SubmitHandler}>
           <div className={styles["form-controls"]}>
-            <div
-              className={`${styles["form-control"]} ${
-                !isNameValid && styles.invalid
-              }`}
-            >
-              <label>Name</label>
-              <input
-                onChange={NameChangeHandler}
-                value={inputName}
-                type="text"
-              />
-            </div>
-            <div
-              className={`${styles["form-control"]} ${
-                !isCostValid && styles.invalid
-              }`}
-            >
-              <label>Cost</label>
-              <input
-                onChange={AmountChangeHandler}
-                value={inputAmount}
-                type="number"
-                min="0.01"
-                step="0.01"
-              />
-            </div>
-            <div
+            <Input
+              label="Name"
+              type="text"
+              isValid={isNameValid}
+              value={inputName}
+              onChange={NameChangeHandler}
+            />
+            <Input
+              label="Cost"
+              type="number"
+              min="0.01"
+              step="0.01"
+              isValid={isCostValid}
+              value={inputAmount}
+              onChange={AmountChangeHandler}
+            />
+            <Input
+              label="Date"
+              type="date"
+              isValid={isDateValid}
+              value={inputDate}
+              onChange={DateChangeHandler}
+              // didn`t work
+              min="2020-1-1"
+              max={curDate}
+              step="2023-12-31"
+            />
+            {/* <div
               className={`${styles["form-control"]} ${
                 !isDateValid && styles.invalid
               }`}
@@ -271,7 +276,7 @@ function CostForm(props) {
                 max={curDate}
                 step="2023-12-31"
               />
-            </div>
+            </div> */}
           </div>
           <div className={styles["new-cost-actions"]}>
             {!isPending && <Button type="submit">Add expense</Button>}
