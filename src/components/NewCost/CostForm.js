@@ -31,7 +31,7 @@ function CostForm(props) {
   const [isDateValid, setDateValid] = useState(true);
 
   const curDate = new Date().toJSON().slice(0, 10);
-
+  const minDate = new Date("2019-12-31");
   const cntx = useContext(ConstContext);
 
   useEffect(() => {
@@ -184,7 +184,13 @@ function CostForm(props) {
           message: "Fied 'Date' cannot be empty",
         });
         break;
-
+      case new Date(inputDate).getTime() <= minDate.getTime():
+        setDateValid(false);
+        setError({
+          title: "incorrect input: Fied 'Date' is outdated",
+          message: "Сhoose a date from 2020",
+        });
+        break;
       case inputAmount.trim().length === 0:
         setCostValid(false);
         setError({
@@ -258,25 +264,9 @@ function CostForm(props) {
               value={inputDate}
               onChange={DateChangeHandler}
               // didn`t work
-              min="2020-1-1"
               max={curDate}
               step="2023-12-31"
             />
-            {/* <div
-              className={`${styles["form-control"]} ${
-                !isDateValid && styles.invalid
-              }`}
-            >
-              <label>Date</label>
-              <input
-                onChange={DateChangeHandler}
-                value={inputDate}
-                type="date"
-                min="2020-1-1"
-                max={curDate}
-                step="2023-12-31"
-              />
-            </div> */}
           </div>
           <div className={styles["new-cost-actions"]}>
             {!isPending && <Button type="submit">Add expense</Button>}

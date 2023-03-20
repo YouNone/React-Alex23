@@ -3,9 +3,9 @@
 3. Add validation. +
 4. Add css moduling. +
 5. move error modal to portal (devide into backdrop and modal 2 divs). +
-6. Add confirmation dialog.
+6. Implement useContext hook, ContextProvider where it is suitable. +
 7. on delete clear inputs (and close adding panel) +
-8. add clear button. +
-9. add login component, logout button.
-10. Implement useContext hook, ContextProvider where it is suitable.
-11. Implement Reducers in CostForm?
+8. Add confirmation dialog. 
+9. Min date fix. +
+?. add login component, logout button.
+?. Implement Reducers in CostForm?
