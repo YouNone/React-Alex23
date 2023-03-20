@@ -9,3 +9,9 @@
 9. Min date fix. +
 ?. add login component, logout button.
 ?. Implement Reducers in CostForm?
+
+-------------
+if PC crash: 
+
+rm -f .git/index
+git reset
